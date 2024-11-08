@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Replace with your package manager (e.g., "pip", "maven", "gradle", "nuget", etc.)
+    directory: "/" # Directory where the package manager file is located (usually root)
+    schedule:
+      interval: "daily" # Update schedule (options: daily, weekly, monthly)
+    open-pull-requests-limit: 10 # Maximum number of open pull requests
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+# Optional settings below:
+  ignore:
+    - dependency-name: "example-package"
+      update-types: ["version-update:semver-patch"] # Ignore specific updates for a given dependency
+  rebase-strategy: "auto" # Automatically rebase PRs when conflicts occur
